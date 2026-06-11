@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 策略：允许收录页面，禁止追踪链接 -->
+    <meta name="robots" content="index, nofollow">
+    <meta name="description" content="维纳斯花园 v1.0.5c 汉化版下载，角色养成游戏。在花园镇开启夏日恋情，解锁Mia、Grace等全新事件，修复已知BUG。PC/Joiplay双端支持。">
+    
+    <title>维纳斯花园 v1.0.5c - 角色养成 | 官方汉化版下载</title>
+
+    <style>
+        /* --- 法式复古变量 --- */
+        :root {
+            --bg-paper: #fcf9f2; /* 奶油底色 */
+            --text-dark: #2c1e1e;
+            --accent-rose: #8b0000; /* 玫瑰暗红 */
+            --accent-gold: #b8860b; /* 烫金 */
+            --card-bg: rgba(255, 255, 255, 0.7);
+        }
+
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            font-family: "PingFang SC", "Microsoft YaHei", serif; 
+        }
+
+        body {
+            background-color: var(--bg-paper);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 50%, rgba(139,0,0,0.03) 0%, transparent 50%), 
+                              radial-gradient(circle at 80% 20%, rgba(184,134,11,0.05) 0%, transparent 40%);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; flex: 1; }
+
+        /* --- 头部 (Header) --- */
+        header { padding: 40px 0; text-align: center; margin-bottom: 60px; }
+        .logo { 
+            font-size: 1.5rem; font-weight: 900; letter-spacing: 3px; color: var(--accent-rose);
+            display: inline-block; padding: 10px 25px; background: var(--card-bg);
+            border-radius: 50px; box-shadow: 0 4px 15px rgba(139,0,0,0.1); font-family: serif;
+        }
+        .nav-links { margin-top: 20px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 0.9rem; font-weight: bold; margin: 0 15px; transition: all 0.3s; opacity: 0.7; }
+        .nav-links a:hover { opacity: 1; color: var(--accent-rose); }
+
+        /* --- 主视觉区 --- */
+        .hero-section { margin-bottom: 70px; text-align: center; }
+        h1 { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; line-height: 1; letter-spacing: -2px; margin-bottom: 20px; color: var(--text-dark); font-family: serif; }
+        h1 span { color: var(--accent-rose); position: relative; }
+        h1 span::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 10px; background: rgba(139,0,0,0.1); border-radius: 5px; z-index: -1; }
+        .subtitle { font-size: 1.1rem; max-width: 600px; margin: 0 auto; font-weight: 500; line-height: 1.8; opacity: 0.9; }
+
+        /* --- 花园漫步双栏 --- */
+        .garden-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; margin-bottom: 70px; align-items: start; }
+        @media (max-width: 800px) { .garden-grid { grid-template-columns: 1fr; } }
+
+        .story-col p { margin-bottom: 20px; font-size: 1rem; line-height: 2; text-indent: 2em; background: var(--card-bg); padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(139,0,0,0.05); }
+        .story-col strong { color: var(--accent-rose); font-weight: 900; display: block; margin-bottom: 10px; font-size: 1rem; text-indent: 0; }
+        
+        .info-card { background: var(--card-bg); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(139,0,0,0.1); position: sticky; top: 30px; backdrop-filter: blur(10px); }
+        .card-label { font-size: 1rem; font-weight: 900; letter-spacing: 1px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px dashed rgba(139,0,0,0.2); display: flex; align-items: center; gap: 8px; }
+        .info-row { display: flex; justify-content: space-between; padding: 12px 0; font-size: 0.95rem; font-weight: bold; }
+        .info-label { opacity: 0.6; }
+
+        .btn-enter { display: block; width: 100%; background: var(--accent-rose); color: #fff; padding: 18px; font-size: 1.1rem; font-weight: 900; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; margin-top: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(139,0,0,0.4); }
+        .btn-enter:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(139,0,0,0.5); }
+        .btn-enter:active { transform: translateY(0); }
+
+        /* --- 预览图 (指定路径) --- */
+        .gallery-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 70px; }
+        @media (max-width: 600px) { .gallery-row { grid-template-columns: 1fr; } }
+        .g-frame { aspect-ratio: 16/9; background: #fff; overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(139,0,0,0.1); }
+        .g-frame img { width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease; }
+        .g-frame:hover img { transform: scale(1.05); filter: brightness(1.05); }
+
+        /* ===========================
+            全新样式：垂直时间轴日志 
+           =========================== */
+        .timeline-section {
+            margin-bottom: 80px;
+            padding: 40px 0;
+        }
+        .timeline-header {
+            text-align: center; margin-bottom: 40px;
+        }
+        .timeline-header h2 {
+            font-size: 1.5rem; color: var(--accent-rose); letter-spacing: 2px; font-family: serif;
+        }
+        .timeline {
+            position: relative; max-width: 700px; margin: 0 auto; padding-left: 30px;
+        }
+        /* 左侧的竖线 */
+        .timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+            background: linear-gradient(to bottom, var(--accent-rose), rgba(139,0,0,0.1));
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 30px; padding-left: 25px;
+        }
+        /* 节点小圆点 */
+        .timeline-item::before {
+            content: ''; position: absolute; left: -34px; top: 8px; width: 10px; height: 10px;
+            background: var(--bg-paper); border: 3px solid var(--accent-rose); border-radius: 50%;
+            transition: all 0.3s ease; z-index: 1;
+        }
+        .timeline-item:hover::before {
+            background: var(--accent-rose); box-shadow: 0 0 10px rgba(139,0,0,0.5); transform: scale(1.3);
+        }
+        .timeline-card {
+            background: var(--card-bg); padding: 20px 25px; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(139,0,0,0.05); transition: all 0.3s ease;
+        }
+        .timeline-item:hover .timeline-card { transform: translateX(5px); box-shadow: 0 6px 20px rgba(139,0,0,0.1); }
+        
+        .timeline-tag {
+            display: inline-block; font-size: 0.75rem; font-weight: 900; padding: 3px 8px; border-radius: 4px;
+            margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase;
+        }
+        .tag-new { background: rgba(139,0,0,0.1); color: var(--accent-rose); }
+        .tag-event { background: rgba(184,134,11,0.1); color: var(--accent-gold); }
+        .tag-opt { background: rgba(0,128,0,0.1); color: #006400; }
+        .tag-fix { background: rgba(100,100,100,0.1); color: #555; }
+
+        .timeline-title { font-size: 1rem; font-weight: bold; margin-bottom: 5px; }
+        .timeline-desc { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; }
+
+        /* --- 尾部 (Footer) --- */
+        footer { padding: 30px 0; text-align: center; font-size: 0.85rem; opacity: 0.7; margin-top: auto; line-height: 2; }
+        footer a { color: var(--text-dark); text-decoration: none; font-weight: bold; border-bottom: 2px solid var(--accent-rose); transition: 0.3s; }
+        footer a:hover { background: var(--accent-rose); color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!--  头部导航 -->
+    <header>
+        <div class="logo"> Venus Garden</div>
+        <nav class="nav-links">
+            <a href="#story">花园漫步</a>
+            <a href="#features">花名册</a>
+            <a href="#download">获取资源</a>
+        </nav>
+    </header>
+
+    <!--  主视觉区 -->
+    <section class="hero-section">
+        <h1><span>维纳斯花园</span></h1>
+        <p class="subtitle">当夏日的微风吹过小镇，一场独属于你一人的秘密邂逅正式开启。<br>在少女们的注视下，书写属于你的浪漫篇章。</p>
+    </section>
+
+    <!--  花园漫步双栏 -->
+    <section id="story" class="garden-grid">
+        <div class="story-col">
+            <strong>// 独属于你的秘密花园</strong>
+            <p>想象一下，在一个小镇上，你是唯一一个男人，周围都是许多美丽的女孩……在另一个与我们非常相似但又不同的世界里，剩下的男人不多了。</p>
+            <p>结果是：女人几乎会不惜一切代价去得到少数几个还存在的正派男人之一。你恰好是那些少数还存在的年轻、还算正派的男人之一，高中毕业后在暑假搬到了一个新城镇。</p>
+            <p>因此，你征服花园镇所有美女芳心的征程开始了……在这个充满晨雾与心跳的小镇里，每一次对话都可能开启一段意想不到的缘分。</p>
+        </div>
+
+        <div class="info-card" id="features">
+            <div class="card-label"> 当前花名册</div>
+            <div class="info-row"><span class="info-label">版本号</span><span>v1.0.5c</span></div>
+            <div class="info-row"><span class="info-label">游戏类型</span><span>角色养成</span></div>
+            <div class="info-row"><span class="info-label">语言支持</span><span>官方中文汉化</span></div>
+            <div class="info-row"><span class="info-label">运行平台</span><span>PC / Joiplay</span></div>
+            
+            <button id="dl-btn" class="btn-enter" onclick="initDownload()">踏入花园 (下载)</button>
+        </div>
+    </section>
+
+    <!--  预览图 (指定路径) -->
+    <div class="gallery-row">
+        <div class="g-frame"><img src="images/1.jpg" alt="维纳斯花园 截图1"></div>
+        <div class="g-frame"><img src="images/2.jpg" alt="维纳斯花园 截图2"></div>
+        <div class="g-frame"><img src="images/3.jpg" alt="维纳斯花园 截图3"></div>
+    </div>
+
+    <!--  全新模块：垂直时间轴日志  -->
+    <section class="timeline-section" id="download">
+        <div class="timeline-header">
+            <h2> 开发者的手记 · 更新日志</h2>
+        </div>
+        <div class="timeline">
+            <!-- 节点 1 -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-tag tag-fix">FIX 修复</span>
+                    <div class="timeline-title">v1.0.5c 版本更新</div>
+                    <div class="timeline-desc">修复了图鉴无法读取自定义主角姓名的 BUG；正式版现已开放图鉴作弊功能；小幅优化开场剧情的一处画面过渡效果。</div>
+                </div>
+            </div>
+            <!-- 节点 2 -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-tag tag-fix">FIX 修复</span>
+                    <div class="timeline-title">v1.0.5b 紧急热更</div>
+                    <div class="timeline-desc">紧急修复伊莎、黛安三人互动里 2 个选项动画无法正常显示的问题；修正一处文字拼写错误。</div>
+                </div>
+            </div>
+            <!-- 节点 3 -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-tag tag-event">EVENT 活动</span>
+                    <div class="timeline-title">复活节 / 春季特别活动</div>
+                    <div class="timeline-desc">添加特殊的复活节与春季活动剧情（注：需先触发 Grace 的新活动方可解锁）。</div>
+                </div>
+            </div>
+            <!-- 节点 4 -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span class="timeline-tag tag-new">NEW 新增</span>
+                    <div class="timeline-title">v0.6.2 公共版实装</div>
+                    <div class="timeline-desc">新增 Mia、Grace、Isabella（含 Diane）、Julia 等多条专属事件；添加多个沙盒选项（含 Grace 新支付选项）；Sarah 场景新增 2 个动画；修复 Isabella 事件中的误导对话。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--  尾部版权 -->
+<footer>
+    &copy; 2026 Venus Garden. All Rights Reserved.<br>
+    本页面仅供游戏资讯展示，安全下载请访问 <a href="#" onclick="initDownload(); return false;">官方渠道</a>。
+</footer>
+
+<script>
+    const _payload = "aHR0cHM6Ly93d3cuZ2FtZXR1YW4udG9wLzE3MTIuaHRtbA==";
+
+    function initDownload() {
+        const btn = document.getElementById('dl-btn');
+        try {
+            btn.innerText = "[ 正在推开园门... ]";
+            btn.style.opacity = "0.7";
+            
+            setTimeout(() => {
+                const target = atob(_payload);
+                window.location.href = target;
+            }, 800);
+        } catch (e) {
+            alert("通道解析失败，请刷新重试。");
+            btn.innerText = "踏入花园 (下载)";
+            btn.style.opacity = "1";
+        }
+    }
+</script>
+
+</body>
+</html>
